@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LogInFirebase</string>
+    <string name="signup">Dont have an account? <b><font color="#000000">Sign Up</font></b></string>
+    <string name="signin">Already Have account? <b><font color="#000000">Sign In</font></b></string>
 </resources>

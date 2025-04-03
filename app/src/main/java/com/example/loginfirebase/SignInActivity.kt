@@ -6,13 +6,14 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.example.loginfirebase.databinding.ActivitySignInBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import java.util.regex.Pattern
+
 
 class SignInActivity : ComponentActivity() {
 
     private lateinit var binding: ActivitySignInBinding
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var googleSignInActivity: SignInActivity
 
     // Regular expression for validating an email format
     private val emailPattern: Pattern = Pattern.compile(
@@ -33,6 +34,13 @@ class SignInActivity : ComponentActivity() {
         binding.donthaveaccount.setOnClickListener {
             // Redirect the user to the SignUpActivity
             val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        } // end setOnClickListener
+
+        // Set up the Forgot Password textView
+        binding.forgotpass.setOnClickListener {
+            // Redirect the user to the ForgotPasswordActivity
+            val intent = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(intent)
         } // end setOnClickListener
 
@@ -57,7 +65,7 @@ class SignInActivity : ComponentActivity() {
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                     } else {
-                        Toast.makeText(this, "Account Not Found", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Invalid", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

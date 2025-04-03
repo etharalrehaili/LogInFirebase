@@ -36,7 +36,7 @@ class SignUpActivity : ComponentActivity() {
             startActivity(intent)
         }
 
-        binding.button.setOnClickListener {
+        binding.btnSignUp.setOnClickListener {
             var email = binding.inputemail.text.toString()
             var pass = binding.password.text.toString()
             val confirmPass = binding.confirmpassword.text.toString()
